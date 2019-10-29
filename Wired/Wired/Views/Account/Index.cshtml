@@ -1,0 +1,66 @@
+﻿@model Wired.Models.ViewModels.AccountViewModel;
+
+@{
+    Layout = "_WiredLayout";
+    ViewData["Title"] = "Login e Cadastro";
+}
+
+@if (!String.IsNullOrEmpty(ViewBag.Message))
+{
+    <div class="alert-danger"> <h3 class="alert alert-danger text-center">@ViewBag.Message</h3> </div>
+}
+
+
+<div class="container">
+    <div id="log">
+        <div id="login">
+            <h2>LogIn</h2>
+            @if (@ViewBag.Login != null)
+            {
+                <div class="has-error text-danger">
+                    @ViewBag.error
+                    <div asp-validation-summary="All"></div>
+                </div>
+            }
+            <form method="post" asp-controller="Account" asp-action="Login">
+                <div>
+                    <input type="email" aria-describedby="email" name="email" placeholder="E-mail">
+                </div>
+                <div>
+                    <input type="password" id="password" name="password" placeholder="Senha">
+                </div>
+                <div>
+                    <p id="esqueciSenha"><a href="#">Esqueci minha Senha</a></p>
+                </div>
+                <button type="submit" id="logged" class="btn btn-submit">LogIn</button>
+            </form>
+        </div>
+
+        <div id="cadastro">
+            <h2>Cadastro</h2>
+            @if (@ViewBag.Register != null)
+            {
+                <div class="has-error text-danger">
+                    @ViewBag.error
+                    <div asp-validation-summary="All"></div>
+                </div>
+            }
+            <form method="post" asp-controller="Customers" asp-action="Create">
+                <div>
+                    <input type="text" name="name" placeholder="Nome" id="name">
+                </div>
+                <div>
+                    <input type="email" aria-describedby="email" name="email" placeholder="E-mail">
+                </div>
+                <div>
+                    <input type="text" name="cpf" id="cpf" placeholder="CPF">
+                </div>
+                <div>
+                    <input type="password" id="password" name="password" placeholder="Senha">
+                </div>
+
+                <button type="submit" class="btn btn-submit">Cadastre-se</button>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,76 @@
+﻿@model IEnumerable<Wired.Models.ViewModels.GameViewModel>
+
+@{
+    ViewData["Title"] = "Games-Admin";
+}
+
+<div class="newgame">
+    <a asp-action="Create"> <button type="button" id="buttonNewGame" class="btn btn-warning btn-sm"><i class="fas fa-plus"></i>Cadastrar novo game</button></a>
+</div>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayName("")
+            </th>
+            <th>
+                @Html.DisplayName("Game")
+            </th>
+            <th>
+                @Html.DisplayName("Gênero")
+            </th>
+            <th>
+                @Html.DisplayName("Produtora")
+            </th>
+            <th>
+                @Html.DisplayName("Ano de lançamento")
+            </th>
+            <th>
+                @Html.DisplayName("Descrição curta")
+            </th>
+            <th>
+                @Html.DisplayName("Preço(R$)")
+            </th>
+
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    <div class="product-adm-list">
+                        @if (item.Images.Count > 0)
+                        {
+                            <img src="~/images/@item.Images.FirstOrDefault().ImagePath">
+                        }
+                    </div>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Genre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Producer)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ReleaseYear)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ShortDescription)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Price)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Editar</a> |
+                    <!--  <a asp-action="Details" asp-route-id="@item.Id">Details</a> |-->
+                    <a asp-action="Delete" class="text-danger" asp-route-id="@item.Id">Apagar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

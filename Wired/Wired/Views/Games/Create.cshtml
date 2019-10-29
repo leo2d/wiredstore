@@ -1,0 +1,104 @@
+﻿@model Wired.Models.Entities.Game
+
+@{
+    ViewData["Title"] = "Cadastro de novo Game";
+}
+@*<style>
+        .img-register-preview {
+            width: 200px;
+            height: 160px;
+            margin-left: 20px;
+            margin-right: 20px;
+        }
+    </style>
+    <script>
+        const loadFile = (event, id) => {
+            const output = document.getElementById(id);
+            //document.createElement('img');
+            output.src = URL.createObjectURL(event.target.files[0]);
+            output.className = "img-register-preview";
+        };
+
+    </script>*@
+<h2>Cadastro de novo game</h2>
+
+<hr />
+<div class="container">
+    <div id="novoJogo">
+        <form asp-action="Create" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group form-control-file">
+                <label class="control-label">Imagens</label>
+                <smal class="form-text text-muted">Selecione até duas images para este produto. As imagens devem estar on formato JPEG ou PNG</smal>
+                <table>
+                    <tr>
+                        <td> <input type="file" accept="image/jpeg, image/png" class="form-control-file" multiple name="imgfiles" value="" onchange="loadFile(event, 'image1')" /></td>
+                        @*<td>   <input type="file" accept="image/jpeg, image/png" class="form-control-file" name="image2" value="" onchange="loadFile(event, 'image2')" /></td>*@
+                    </tr>
+                    <tr>
+                        <td>    <img id="image1" /></td>
+                        <td>    <img id="image2" /></td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Name" class="control-label">Nome do Jogo</label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Producer" class="control-label">Produtora</label>
+                <input asp-for="Producer" class="form-control" />
+                <span asp-validation-for="Producer" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ReleaseYear" class="control-label">Ano de Lançamento</label>
+                <input asp-for="ReleaseYear" class="form-control" id="InputAno" />
+                <span asp-validation-for="ReleaseYear" class="text-danger"></span>
+            </div>
+
+            @{
+                var Genres = ViewBag.Genres;
+            }
+
+            <div class="form-group">
+                <label asp-for="Genre" class="control-label">Gênero</label>
+                <select asp-for="GenreId" class="form-control">
+                    @foreach (var genre in Genres)
+                    {
+                        <option value="@genre.Id">@genre.Name</option>
+                    }
+                </select>
+                <span asp-validation-for="GenreId" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Price" class="control-label">Preço</label>
+                <input asp-for="Price" class="form-control" />
+                <span asp-validation-for="Price" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="ShortDescription" class="control-label">Descrição Curta</label>
+                <textarea asp-for="ShortDescription" class="form-control" rows="1"></textarea>
+                <span asp-validation-for="ShortDescription" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Description" class="control-label">Descrição</label>
+                <textarea asp-for="Description" class="form-control" rows="2"></textarea>
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+
+            <button type="submit" class="btn btn-submit" id="adicionarJogo">Adicionar</button>
+        </form>
+    </div>
+
+    <a asp-action="Index">Voltar para a lista</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

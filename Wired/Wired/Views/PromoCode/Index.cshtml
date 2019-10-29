@@ -1,0 +1,48 @@
+﻿@model IEnumerable<Wired.Models.ViewModels.PromoCodeViewModel>
+
+<div class="newgame">
+    <a asp-action="Create"> <button type="button" id="buttonNewGame" class="btn btn-warning btn-sm"><i class="fas fa-plus"></i>Cadastrar novo Cupom</button></a>
+</div>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Cupom
+            </th>
+            <th>
+                Quantidade disponibilizada
+            </th>
+            <th>
+                Desconto
+            </th>
+            <th>
+                Quantos já foram usados
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Coupon)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Amount)
+                </td>
+                <td>
+                    @*@Html.DisplayFor(modelItem => item.DiscountPercent)*@
+                    @item.DiscountPercent %
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UsedAmount)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Editar</a> |
+                    <a asp-action="Delete" class="text-danger" asp-route-id="@item.Id">Apagar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

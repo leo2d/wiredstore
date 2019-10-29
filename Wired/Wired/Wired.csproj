@@ -1,0 +1,43 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Migrations\20181020123314_initalcreate.cs" />
+    <Compile Remove="Migrations\20181020123314_initalcreate.Designer.cs" />
+    <Compile Remove="Migrations\20181020125016_cartItem.cs" />
+    <Compile Remove="Migrations\20181020125016_cartItem.Designer.cs" />
+    <Compile Remove="Migrations\20181020125706_cartItemConfig.cs" />
+    <Compile Remove="Migrations\20181020125706_cartItemConfig.Designer.cs" />
+    <Compile Remove="Migrations\20181020130113_cartItemConfig2.cs" />
+    <Compile Remove="Migrations\20181020130113_cartItemConfig2.Designer.cs" />
+    <Compile Remove="Migrations\20181020130152_cartItemConfig3.cs" />
+    <Compile Remove="Migrations\20181020130152_cartItemConfig3.Designer.cs" />
+    <Compile Remove="Migrations\20181020130845_cartCOnfig1.cs" />
+    <Compile Remove="Migrations\20181020130845_cartCOnfig1.Designer.cs" />
+    <Compile Remove="Migrations\20181020131255_newMigration.cs" />
+    <Compile Remove="Migrations\20181020131255_newMigration.Designer.cs" />
+    <Compile Remove="Migrations\20181020131820_newMigrationAA.cs" />
+    <Compile Remove="Migrations\20181020131820_newMigrationAA.Designer.cs" />
+    <Compile Remove="Migrations\20181020131940_newMigrationAAB.cs" />
+    <Compile Remove="Migrations\20181020131940_newMigrationAAB.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNet.Identity.Core" Version="2.2.2" />
+    <PackageReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="2.1.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="2.1.4">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.5" />
+    <PackageReference Include="MySqlConnector" Version="0.47.1" />
+    <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="2.1.2" />
+    <PackageReference Include="Pomelo.EntityFrameworkCore.MySql.Design" Version="1.1.2" />
+    <PackageReference Include="Microsoft.AspNetCore.All" Version="2.1.5" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,38 @@
+﻿@using  Wired.Models.Entities
+@using Microsoft.AspNetCore.Http;
+
+@{
+    ViewData["Title"] = "Area do cliente";
+}
+
+<div class="container-user">
+    <div class="row">
+        <div class="col-2">
+            <h4>Olá <span name="areaName">@Context.Session.GetString("_userName")</span>!</h4>
+            <h5>Perfil</h5>
+            <ul class="list-group">
+                <li class="list-group-item"><a href="#">Minha Conta</a></li>
+                <li class="list-group-item"><a asp-controller="Customers" asp-action="Edit" asp-route-id="@Context.Session.GetInt32("_userId")"> Meus Dados</a></li>
+            </ul>
+
+            <h5>Histórico</h5>
+            <ul class="list-group">
+                <li class="list-group-item"><a href="#">Lista de Buscas</a></li>
+            </ul>
+
+            <h5>Meus Pedidos</h5>
+            <ul class="list-group">
+                <li class="list-group-item"><a href="#">Meus Pedidos</a></li>
+            </ul>
+            <ul class="list-group">
+                <li class="list-group-item"><a asp-action="logout" asp-controller="account">Sair</a></li>
+            </ul>
+        </div>
+
+    </div>
+
+    <div class="row">
+        <div class="col-md-5">
+
+        </div>
+    </div>

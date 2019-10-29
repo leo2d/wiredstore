@@ -1,0 +1,77 @@
+﻿
+@model IEnumerable<Wired.Models.ViewModels.GameViewModel>
+
+
+<div class="">
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayName("")
+                </th>
+                <th>
+                    @Html.DisplayName("Game")
+                </th>
+                <th>
+                    @Html.DisplayName("Gênero")
+                </th>
+                <th>
+                    @Html.DisplayName("Produtora")
+                </th>
+                <th>
+                    @Html.DisplayName("Ano de lançamento")
+                </th>
+                @*<th>
+                        @Html.DisplayName("Descrição curta")
+                    </th>*@
+                <th>
+                    @Html.DisplayName("Preço(R$)")
+                </th>
+
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        <div class="product-adm-list">
+                            @if (item.Images.Count > 0)
+                            {
+                                <a asp-controller="Games" asp-action="Details" asp-route-id="@item.Id">
+                                    <img src="~/images/@item.Images.FirstOrDefault().ImagePath">
+                                </a>
+                            }
+                        </div>
+                    </td>
+                    <td>
+                        <a asp-controller="Games" asp-action="Details" asp-route-id="@item.Id">
+                            @Html.DisplayFor(modelItem => item.Name)
+                        </a>
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Genre)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Producer)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ReleaseYear)
+                    </td>
+                    @*<td>
+                            @Html.DisplayFor(modelItem => item.ShortDescription)
+                        </td>*@
+                    <td>
+                        @{
+                            var formatedPrice = item.Price > 100 ? item.Price.ToString().Replace('.', ',').PadRight(6, '0') : item.Price.ToString().Replace('.', ',').PadRight(5, '0');
+                            formatedPrice = item.Price > 0 ? formatedPrice : "GRATUITO";
+                        }
+                        @Html.DisplayFor(modelItem => formatedPrice)
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

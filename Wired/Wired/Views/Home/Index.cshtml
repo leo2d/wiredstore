@@ -1,0 +1,183 @@
+﻿@model IEnumerable<Wired.Models.Entities.Game>
+
+@{
+    ViewData["Title"] = "Wired Keys - Home";
+    Layout = "~/Views/Shared/_WiredLayout.cshtml";
+}
+
+
+<div class="container">
+
+    <div id="games">
+        <div class="gallery">
+            <hr>
+            <div class="row">
+                <div class="col-sm-12 col-md-6 col-lg-6  py-0 pl-3 pr-1 featcard">
+                    <div id="featured" class="carousel slide carousel-fade" data-ride="carousel">
+                        <div class="carousel-inner">
+                            @foreach (var game in Model)
+                            {
+                                var img = game.Images.FirstOrDefault();
+
+                                @if (Model.ToArray()[0] == game)
+                                {
+                                    <div class="carousel-item active">
+                                        <div class="card bg-dark text-white">
+                                            <img src="~/images/@img.ImagePath" alt="@game.Name" class="card-img img-fluid" />
+                                            <div class="card-img-overlay d-flex linkfeat">
+                                                <a asp-controller="Games" asp-action="Details" asp-route-id="@game.Id" class="align-self-end">
+                                                    @game.Name
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                                else
+                                {
+                                    <div class="carousel-item">
+                                        <div class="card bg-dark text-white">
+                                            <img src="~/images/@img.ImagePath" alt="@game.Name" class="card-img img-fluid" />
+                                            <div class="card-img-overlay d-flex linkfeat">
+                                                <a asp-controller="Games" asp-action="Details" asp-route-id="@game.Id" class="align-self-end">
+                                                    @game.Name
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                            }
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 py-0 px-1 d-none d-lg-block">
+                    <div class="row">
+                        <div class="col-6 pb-2 mg-1	">
+                            <div class="card bg-dark text-white">
+                                <img class="card-img img-fluid" src="~/images/lastofus.jpg" alt="">
+                                <div class="card-img-overlay d-flex">
+                                    <a href="#" class="align-self-end">
+
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 pb-2 mg-2	">
+                            <div class="card bg-dark text-white">
+                                <img class="card-img img-fluid" src="~/images/anno1800.jpg" alt="">
+                                <div class="card-img-overlay d-flex">
+                                    <a href="#" class="align-self-end">
+
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 pb-2 mg-3	">
+                            <div class="card bg-dark text-white">
+                                <img class="card-img img-fluid" src="~/images/anno1800.jpg" alt="">
+                                <div class="card-img-overlay d-flex">
+                                    <a href="#" class="align-self-end">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 pb-2 mg-4	">
+                            <div class="card bg-dark text-white">
+                                <img class="card-img img-fluid" src="~/images/lastofus.jpg" alt="">
+                                <div class="card-img-overlay d-flex">
+                                    <a href="#" class="align-self-end">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <h3>Promoção</h3>
+            <div class="product-card">
+                <a title="Transfer" href="#">
+                    <div class="product-image"><img src="~/images/forhonor.jpg"></div>
+                    <div class="product-card-content"><h5>Exemplo</h5></div>
+                    <div class="product-card-footer">
+                        <div class="descount-price"><a class="btn btn-danger btn-sm" href="#" role="button">10%</a></div>
+                        <div class="price"><button type="button" class="btn btn-outline-primary btn-sm">R$ 50,00</button></div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="product-card">
+                <a title="Transfer" href="#">
+                    <div class="product-image"><img src="~/images/battle.jpg"></div>
+                    <div class="product-card-content"><h5>Exemplo</h5></div>
+                    <div class="product-card-footer">
+                        <div class="descount-price"><a class="btn btn-danger btn-sm" href="#" role="button">10%</a></div>
+                        <div class="price"><button type="button" class="btn btn-outline-primary btn-sm">R$ 50,00</button></div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="product-card">
+                <a title="Transfer" href="#">
+                    <div class="product-image"><img src="~/images/farcry.jpg"></div>
+                    <div class="product-card-content"><h5>Exemplo</h5></div>
+                    <div class="product-card-footer">
+                        <div class="descount-price"><a class="btn btn-danger btn-sm" href="#" role="button">10%</a></div>
+                        <div class="price"><button type="button" class="btn btn-outline-primary btn-sm">R$ 50,00</button></div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="product-card">
+                <a title="Transfer" href="#">
+                    <div class="product-image"><img src="~/images/overcooked2.jpg"></div>
+                    <div class="product-card-content"><h5>Exemplo</h5></div>
+                    <div class="product-card-footer">
+                        <div class="descount-price"><a class="btn btn-danger btn-sm" href="#" role="button">10%</a></div>
+                        <div class="price"><button type="button" class="btn btn-outline-primary btn-sm">R$ 50,00</button></div>
+                    </div>
+                </a>
+            </div>
+            <div class="product-card">
+                <a title="Transfer" href="#">
+                    <div class="product-image"><img src="~/images/soccer.jpg"></div>
+                    <div class="product-card-content"><h5>Exemplo</h5></div>
+                    <div class="product-card-footer">
+                        <div class="descount-price"><a class="btn btn-danger btn-sm" href="#" role="button">10%</a></div>
+                        <div class="price"><button type="button" class="btn btn-outline-primary btn-sm">R$ 50,00</button></div>
+                    </div>
+                </a>
+            </div>
+            <div class="product-card">
+                <a title="Transfer" href="#">
+                    <div class="product-image"><img src="~/images/fortheking.jpg"></div>
+                    <div class="product-card-content"><h5>Exemplo</h5></div>
+                    <div class="product-card-footer">
+                        <div class="descount-price"><a class="btn btn-danger btn-sm" href="#" role="button">10%</a></div>
+                        <div class="price"><button type="button" class="btn btn-outline-primary btn-sm">R$ 50,00</button></div>
+                    </div>
+                </a>
+            </div>
+            <div class="product-card">
+                <a title="Transfer" href="#">
+                    <div class="product-image"><img src="~/images/serialcleaner.jpg"></div>
+                    <div class="product-card-content"><h5>Exemplo</h5></div>
+                    <div class="product-card-footer">
+                        <div class="descount-price"><a class="btn btn-danger btn-sm" href="#" role="button">10%</a></div>
+                        <div class="price"><button type="button" class="btn btn-outline-primary btn-sm">R$ 50,00</button></div>
+                    </div>
+                </a>
+            </div>
+            <div class="product-card">
+                <a title="Transfer" href="#">
+                    <div class="product-image"><img src="~/images/deadcells.jpg"></div>
+                    <div class="product-card-content"><h5>Exemplo</h5></div>
+                    <div class="product-card-footer">
+                        <div class="descount-price"><a class="btn btn-danger btn-sm" href="#" role="button">10%</a></div>
+                        <div class="price"><button type="button" class="btn btn-outline-primary btn-sm">R$ 50,00</button></div>
+                    </div>
+                </a>
+            </div>
+
+        </div>
+    </div>
+</div>
+

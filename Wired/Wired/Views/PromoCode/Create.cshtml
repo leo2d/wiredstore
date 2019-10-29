@@ -1,0 +1,39 @@
+﻿@model Wired.Models.ViewModels.PromoCodeViewModel
+
+<h4>Criar cupom de desconto</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Coupon" class="control-label">Cupom</label>
+                <input asp-for="Coupon" required class="form-control" />
+                <span asp-validation-for="Coupon" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Amount" class="control-label">Quantidade</label>
+                <input asp-for="Amount" required class="form-control" />
+                <span asp-validation-for="Amount" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DiscountPercent" class="control-label">Percentual de desconto</label>
+                <input asp-for="DiscountPercent" required class="form-control" />
+                <span asp-validation-for="DiscountPercent" class="text-danger"></span>
+            </div>
+            @*<div class="form-group">
+                <label asp-for="UsedAmount" class="control-label">Quantas vezes já foi usado</label>
+                <span asp-for="UsedAmount" readonly ="form-control" />
+                <span asp-validation-for="UsedAmount" class="text-danger"></span>
+            </div>*@
+            <div class="form-group">
+                <input type="submit" value="Cadastrar" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Voltar para a lista</a>
+</div>
+

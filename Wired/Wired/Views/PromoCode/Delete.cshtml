@@ -1,0 +1,41 @@
+﻿@model Wired.Models.ViewModels.PromoCodeViewModel
+
+
+@{
+    ViewData["Title"] = "Apagar Cupom";
+}
+
+
+<div class="container container-fluid">
+    <h3>Você realmente deseja apagar o cupom</h3>
+    <div>
+        <h4 class="text-info"> @Html.DisplayFor(model => model.Coupon) ?</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                Quantidade
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Amount)
+            </dd>
+            <dt>
+                Desconto
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.DiscountPercent) %
+            </dd>
+            <dt>
+                Quantos já foram utilizados
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.UsedAmount)
+            </dd>
+        </dl>
+
+        <form asp-action="Delete">
+            <input type="hidden" asp-for="Id" />
+            <button type="submit" value="Apagar" class="btn btn-submit">Apagar</button> |
+            <a asp-action="Index">Voltar para lista</a>
+        </form>
+    </div>
+</div>

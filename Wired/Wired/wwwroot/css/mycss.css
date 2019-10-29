@@ -1,0 +1,492 @@
+﻿html, body {
+    padding: 0;
+    margin: 0;
+    height: 100%;
+}
+
+body {
+    background-color: #fff;
+    margin: 0 auto;
+}
+
+form.form {
+    float: left;
+    width: 20%;
+    margin-top: 5%;
+}
+
+div.form-group {
+    margin-bottom: 10%;
+}
+
+/*Content*/
+div.container {
+    /*max-width: 960px;
+    margin: auto;
+    background-color: #0B1066;
+    height:50em;
+    box-shadow: 5px 5px 5px black;
+    
+    border:1px #010319;*/
+    /*background-color: #0B1066;
+    border-radius:3px;*/
+    padding: 50px;
+    max-height: 500px;
+}
+
+.dropdown-toggle::after {
+    margin-left: 0.50em;
+}
+
+
+/*NAV BAR*/
+
+
+nav.navbar {
+    background-color: black;
+    margin-bottom: 3%;
+}
+
+a.navbar-brand {
+    color: white;
+}
+
+ul.marginmenu {
+    margin-left: 50px;
+}
+
+ul li a {
+    color: #fff;
+}
+
+    ul li a:hover {
+        color: #ffc107;
+    }
+
+li.nav-item {
+    margin-right: 10px;
+    text-transform: uppercase;
+}
+
+i.fa {
+    margin-left: 5px;
+}
+
+ul.dropdown-menu, a.dropdown-item {
+    background-color: #fff;
+    color: black;
+}
+
+    a.dropdown-item:hover {
+        background-color: black;
+        color: #fff;
+    }
+
+div.user {
+    /*margin-left:350%;*/
+    position: absolute;
+    top: 2;
+    right: 0;
+    margin-right: 10px;
+}
+
+/*FOOTER*/
+
+/*footer{bottom: 0; left: 0; right: 0;}*/
+footer {
+    background-color: black;
+    margin-top: 35%;
+    padding: 3em;
+}
+
+/*div#about{
+    margin-left:50px;
+    float:left;
+    width:10em;
+    height:5em;
+}
+
+div#menuFooter{
+    margin-left:250px;
+    float:left;
+
+}*/
+
+/*Página Principal*/
+
+
+.product-card {
+    width: 200px;
+    height: 200px;
+    margin-bottom: 22px;
+    margin-left: 45px;
+    padding: 13px;
+    float: left;
+    background-color: #fff;
+    box-shadow: 1px 1px 1px black;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+}
+
+#games h3 {
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-bottom: 2em;
+    text-transform: uppercase;
+}
+
+.descount-price, .price {
+    margin: 2px;
+    float: left;
+}
+
+img {
+    width: 100%;
+    height: 50%;
+}
+
+/*Página LogIn*/
+
+
+div#login, div#cadastro {
+    float: left;
+    width: 35%;
+    height: 350px;
+    padding: 20px;
+    z-index: 2;
+    margin-left: 9%;
+    margin-top: 2%;
+    background-color: #fff;
+    box-shadow: 1px 1px 1px black;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+}
+
+    div#login input, div#cadastro input {
+        margin-bottom: 3%;
+        border: 1px solid lightgray;
+        border-radius: 10px;
+    }
+
+    div#login h2, div#cadastro h2 {
+        display: block;
+        margin-bottom: 5%;
+        color: black;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    div#cadastro h2 {
+        margin-left: 30%;
+    }
+
+    div#login h2 {
+        margin-left: 35%;
+    }
+
+form input {
+    border-radius: 5px;
+    width: 80%;
+    padding: 2px;
+}
+
+button.btn-submit {
+    margin: 20px;
+    background-color: orangered;
+    color: #fff;
+}
+
+p#esqueciSenha {
+    display: block;
+    margin: 20px;
+    margin-bottom: 26px;
+}
+
+/*Página Administrador*/
+
+div#novoJogo {
+    width: 50%;
+}
+
+div.content div.newgame {
+    height: 50px;
+    margin-bottom: 30px;
+}
+
+    div.content div.newgame button {
+        margin-top: 30px;
+        margin-left: 80%;
+    }
+
+table.table {
+    width: 80%;
+    margin: 0 auto;
+}
+
+    table.table thead tr th {
+        color: black;
+    }
+
+    table.table thead {
+        border: 3px solid black;
+    }
+
+button#buttonNewGame {
+    margin-left: 80%;
+    margin-bottom: 1%;
+}
+
+button#adicionarJogo {
+    margin-left: 80%;
+}
+
+/*HYPER LINK*/
+
+a, a:focus, a:hover {
+    text-decoration: none;
+    color: inherit;
+}
+
+    a:hover, .btn {
+        outline: none !important;
+    }
+
+/*ROUNDED CORNER*/
+* {
+    -webkit-border-radius: 0 !important;
+    -moz-border-radius: 0 !important;
+    border-radius: 0 !important;
+}
+/*CATEGORIES BADGE*/
+.badge {
+    font-weight: 600;
+    font-size: 13px;
+    color: white;
+    background-color: #289dcc;
+}
+/*FEATURED*/
+.mg-2, .mg-4 {
+    margin-left: -20px;
+}
+
+.linkfeat {
+    background: rgba(76,76,76,0);
+    background: -moz-linear-gradient(top, rgba(76,76,76,0) 0%, rgba(48,48,48,0) 49%, rgba(19,19,19,1) 100%);
+    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(76,76,76,0)), color-stop(49%, rgba(48,48,48,0)), color-stop(100%, rgba(19,19,19,1)));
+    background: -webkit-linear-gradient(top, rgba(76,76,76,0) 0%, rgba(48,48,48,0) 49%, rgba(19,19,19,1) 100%);
+    background: -o-linear-gradient(top, rgba(76,76,76,0) 0%, rgba(48,48,48,0) 49%, rgba(19,19,19,1) 100%);
+    background: -ms-linear-gradient(top, rgba(76,76,76,0) 0%, rgba(48,48,48,0) 49%, rgba(19,19,19,1) 100%);
+    background: linear-gradient(to bottom, rgba(76,76,76,0) 0%, rgba(48,48,48,0) 49%, rgba(19,19,19,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4c4c4c', endColorstr='#131313', GradientType=0 );
+}
+
+/*USER*/
+
+ul.userlog {
+    margin-left: 70%;
+}
+/*USER*/
+
+.container-user .row {
+    margin-right: 0 !important;
+}
+
+ul.userlog {
+    margin-left: 70%;
+}
+
+ul.list-group, .col-2 h5 {
+    margin-bottom: 1em;
+    margin-left: 2em;
+}
+
+.col-2 h4 {
+    margin-bottom: 1em;
+    margin-left: 1.5em;
+}
+
+.col-2 h5 {
+    color: #CCC;
+    font-size: 1em;
+}
+
+li.list-group-item a {
+    color: black;
+}
+
+/*Filtro*/
+.row {
+    padding: 2px;
+}
+
+.search-bar {
+    margin: 1%;
+}
+
+/*Product Details*/
+.description {
+    margin-left: 2em;
+}
+
+.monospaced {
+    font-family: 'Ubuntu Mono', monospaced;
+}
+
+.add-to-cart .btn-qty {
+    width: 52px;
+    height: 46px;
+}
+
+.add-to-cart .btn {
+    border-radius: 0;
+}
+
+.heightproduct {
+    /*height: 30em;
+    margin-left:-10em;
+    padding-right:15em;*/
+}
+
+.stars {
+    padding-left: 2em;
+}
+
+.monospaced a:hover {
+    color: #ffc107;
+}
+
+.bag {
+    padding-top: 8em;
+}
+/*Star Rating*/
+
+/*@import url(//netdna.bootstrapcdn.com/font-awesome/5.2.0/css/font-awesome.css);*/
+
+.starrating > input {
+    display: none;
+}
+/* Remove radio buttons */
+
+.starrating > label:before {
+    content: "\f005"; /* Star */
+    margin: 2px;
+    font-size: 1em;
+    font-weight: 900;
+    font-family: 'Font Awesome 5 Free';
+    display: inline-block;
+}
+
+.starrating > label {
+    color: #ccc; /* Start color when not clicked */
+    font-weight: 200;
+}
+
+.starrating > input:checked ~ label {
+    color: #ffca08;
+}
+/* Set yellow color when star checked */
+
+.starrating > input:hover ~ label {
+    color: #ffca08;
+}
+/* Set yellow color when star hover */
+
+/*CART*/
+
+.table > tbody > tr > td, .table > tfoot > tr > td {
+    vertical-align: middle;
+}
+
+@media screen and (max-width: 600px) {
+    table#cart tbody td .form-control {
+        width: 20%;
+        display: inline !important;
+    }
+
+    .actions .btn {
+        width: 36%;
+        margin: 1.5em 0;
+    }
+
+    .actions .btn-info {
+        float: left;
+    }
+
+    .actions .btn-danger {
+        float: right;
+    }
+
+    table#cart thead {
+        display: none;
+    }
+
+    table#cart tbody td {
+        display: block;
+        padding: .6rem;
+        min-width: 320px;
+    }
+
+    table#cart tbody tr td:first-child {
+        background: #333;
+        color: #fff;
+    }
+
+    table#cart tbody td:before {
+        content: attr(data-th);
+        font-weight: bold;
+        display: inline-block;
+        width: 8rem;
+    }
+
+
+
+    table#cart tfoot td {
+        display: block;
+    }
+
+        table#cart tfoot td .btn {
+            display: block;
+        }
+}
+
+/*CREDIT CARD*/
+
+.credit-card-box .panel-title {
+    display: inline;
+    font-weight: bold;
+}
+
+.credit-card-box .form-control.error {
+    border-color: red;
+    outline: 0;
+    box-shadow: inset 0 1px 1px rgba(0,0,0,0.075),0 0 8px rgba(255,0,0,0.6);
+}
+
+.credit-card-box label.error {
+    font-weight: bold;
+    color: red;
+    padding: 2px 8px;
+    margin-top: 2px;
+}
+
+.credit-card-box .payment-errors {
+    font-weight: bold;
+    color: red;
+    padding: 2px 8px;
+    margin-top: 2px;
+}
+
+.credit-card-box label {
+    display: block;
+}
+/* The old "center div vertically" hack */
+.credit-card-box .display-table {
+    display: table;
+}
+
+.credit-card-box .display-tr {
+    display: table-row;
+}
+
+.credit-card-box .display-td {
+    display: table-cell;
+}

@@ -1,0 +1,175 @@
+﻿@model IEnumerable<Wired.Models.ViewModels.GameViewModel>
+
+@{
+    ViewData["Title"] = "Resultado da busca";
+}
+
+@*<div class="container" style="margin-top: 8%;">
+        <div class="col-md-10 col-md-offset-3">
+            <form asp-action="List" asp-controller="Search" method="get" class="form-group-lg">
+                <div class="form-group">
+                    <div class="input-group">
+                        <input class="form-control py-2" type="search" value="" required name="searchName" placeholder="Buscar por jogos" />
+                        <span class="input-group-append">
+                            <button class="btn btn-outline-warning" type="submit">
+                                <i class="fa fa-search"></i>
+                            </button>
+                        </span>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>*@
+
+
+@if (Model.Count() < 1)
+{
+    <br>
+    <br>
+    <h2 class="text-center text-danger show">Opa!</h2>
+    <h5 class="text-center">A busca não retornou nenhum resultado.</h5>
+}
+else
+{
+    if (Model.Count() > 1)
+    {
+        var categories = Model.Select(m => m.Genre).Distinct().ToList();
+    }
+
+    <div class="">
+
+        <table class="table table-hover" id="gamestable">
+            <thead class="thead-dark">
+                <tr>
+                    <th>
+                        @if (Model.Count() > 1)
+                        {
+                            <select name="price-sorting" class="price-sorting custom-select" id="price-sorting">
+                                <option class="selected" selected disabled> Ordenar por</option>
+                                <option value="l2h">Menor Preço</option>
+                                <option value="h2l">Maior Preço</option>
+                                <option value="nameasc">Nome A-Z</option>
+                                <option value="namedesc">Nome Z-A</option>
+                            </select>
+                        }
+                    </th>
+                    <th>
+                        @Html.DisplayName("Game")
+                    </th>
+                    <th>
+                        @Html.DisplayName("Gênero")
+                    </th>
+                    <th>
+                        @Html.DisplayName("Produtora")
+                    </th>
+                    <th>
+                        @Html.DisplayName("Ano de lançamento")
+                    </th>
+                    @*<th>
+                            @Html.DisplayName("Descrição curta")
+                        </th>*@
+                    <th>
+                        @Html.DisplayName("Preço")
+                    </th>
+
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody class="products-grid">
+                @foreach (var item in Model)
+                {
+                    var formatedPrice = item.Price > 100 ? item.Price.ToString().PadRight(6, '0') : item.Price.ToString().PadRight(5, '0');
+                    formatedPrice = item.Price > 0 ? $"R${formatedPrice}" : "GRATUITO";
+
+                    <tr class="product" data-price="@item.Price.ToString().Replace(',', '.')" data-name="@item.Name.ToLower().Replace(" ", "-")" data-genre="@item.Genre">
+                        <td>
+                            <div class="product-adm-list ">
+                                @if (item.Images.Count > 0)
+                                {
+                                    <a asp-controller="Games" asp-action="Details" asp-route-id="@item.Id">
+                                        <img src="~/images/@item.Images.FirstOrDefault().ImagePath">
+                                    </a>
+                                }
+                            </div>
+                        </td>
+                        <td>
+
+                            <a asp-controller="Games" asp-action="Details" asp-route-id="@item.Id">
+                                @Html.DisplayFor(modelItem => item.Name)
+                            </a>
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Genre)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Producer)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ReleaseYear)
+                        </td>
+                        @*<td>
+                                @Html.DisplayFor(modelItem => item.ShortDescription)
+                            </td>*@
+                        <td>
+                            @Html.DisplayFor(modelItem => formatedPrice)
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="~/js/ddtf.js"></script>
+<script>
+    var options = {
+        sortOpt: false,
+    }
+    $('#gamestable').ddTableFilter(options);
+</script>
+<script>
+
+    $(document).on("change", ".price-sorting", function () {
+
+        var sortingMethod = $(this).val();
+
+        if (sortingMethod == 'l2h') {
+            sortProductsPriceAscending();
+        }
+        else if (sortingMethod == 'h2l') {
+            sortProductsPriceDescending();
+        }
+        else if (sortingMethod == 'nameasc') {
+            sortProductsNameAscending();
+        } else if (sortingMethod == 'namedesc') {
+            sortProductsNameDescending();
+        }
+
+    });
+
+    function sortProductsNameAscending() {
+        var products = $('.product');
+        products.sort(function (a, b) { return $(a).data("name") > $(b).data("name") });
+        $(".products-grid").html(products);
+
+    } function sortProductsNameDescending() {
+        var products = $('.product');
+        products.sort(function (a, b) { return $(a).data("name") < $(b).data("name") });
+        $(".products-grid").html(products);
+    }
+
+    function sortProductsPriceAscending() {
+        var products = $('.product');
+        products.sort(function (a, b) { return $(a).data("price") - $(b).data("price") });
+        $(".products-grid").html(products);
+
+    }
+
+    function sortProductsPriceDescending() {
+        var products = $('.product');
+        products.sort(function (a, b) { return $(b).data("price") - $(a).data("price") });
+        $(".products-grid").html(products);
+
+    }
+</script>

@@ -1,0 +1,58 @@
+﻿
+@{
+    ViewData["Title"] = "Administrador";
+    Layout = "~/Views/Shared/_WiredLayout.cshtml";
+}
+<style>
+    .card-option {
+        width: 250px;
+        height: 250px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 20px;
+    }
+
+    .text-menu {
+        vertical-align: central;
+        align-items: center;
+        font-size: 20px;
+        color: #000000;
+    }
+
+    .cards {
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+</style>
+<div class="container">
+
+    <div class="cards">
+        <div class="card-option btn-warning">
+            <a class="text-center text-menu" asp-action="Index" asp-controller="Games">
+                <i class="fa fa-cogs fa-lg icon-big"></i><br>
+                Gerenciar Games
+            </a>
+        </div>
+        <div class="card-option btn-warning">
+            <a class="text-center text-menu" asp-action="Create" asp-controller="Games">
+                <i class="fa fa-plus fa-lg"></i><br>
+                Cadastrar Novo Game
+            </a>
+        </div>
+        <div class="card-option btn-warning">
+            <a class="text-center text-menu" href="#">
+                <i class="fa fa-chart-line fa-lg"></i><br>
+                Relatórios
+            </a>
+        </div>
+        <div class="card-option btn-warning">
+            <a class="text-center text-menu" asp-action="Index" asp-controller="PromoCode">
+                <i class="fa fa-ticket-alt  fa-lg"></i><br>
+                Cupons de desconto
+            </a>
+        </div>
+    </div>
+</div>

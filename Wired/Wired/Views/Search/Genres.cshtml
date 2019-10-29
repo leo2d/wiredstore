@@ -1,0 +1,7 @@
+﻿@model IEnumerable<Wired.Models.Entities.Genre>;
+
+
+    @foreach (var genre in Model)
+    {
+        <li><a asp-controller="Search" asp-action="SearchByGenre" asp-route-id="@genre.Id" class="dropdown-item">@genre.Name</a></li>
+    }

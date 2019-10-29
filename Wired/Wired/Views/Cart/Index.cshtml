@@ -1,0 +1,76 @@
+﻿@model Wired.Models.Entities.Cart
+@using Microsoft.AspNetCore.Http;
+
+@{
+    ViewData["Title"] = "Carrinho";
+}
+
+<table id="cart" class="table table-condensed">
+    <thead>
+        <tr>
+            <th style="width:50%">Produto</th>
+            <th style="width:10%">Preço</th>
+            <th style="width:8%">Quantidade</th>
+            <th style="width:22%" class="text-center">Subtotal</th>
+            <th style="width:10%"></th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            foreach (var item in Model.Games)
+            {
+                //var path = item.Game.Images.FirstOrDefault().ImagePath;
+
+                <tr>
+                    <td data-th="Product">
+                        <div class="row">
+                            @*<div class="col-sm-2 hidden-xs"><img style="width:100px; height: 75px" src="~/images/@path" alt="@item.Game.Name" class="img-responsive" /></div>*@
+                            <div class="col-sm-2 hidden-xs"><img src="http://placehold.it/100x100" alt="@item.Game.Name" class="img-responsive" /></div>
+                            <div class="col-sm-10">
+                                <h4 class="nomargin" name="productcart">@item.Game.Name</h4>
+                                <p>@item.Game.ShortDescription</p>
+                            </div>
+                        </div>
+                    </td>
+
+                    <td data-th="Preco">@FormatValue(item.Game.Price)</td>
+                    <td data-th="Quantidade">
+                        <input type="number" max="5" min="1" class="form-control text-center" value="@item.Amount">
+                    </td>
+                    <td data-th="Subtotal" class="text-center">@FormatValue(item.Amount * item.Game.Price)</td>
+                    <td class="actions" data-th="">
+                        <a asp-action="RemoveFromCart" asp-controller="Cart" asp-route-id="@item.Id" class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i></a>
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+    <tfoot>
+        <tr class="visible-xs">
+            @*<td class="text-center"><strong>Total R$ 54654</strong></td>*@
+        </tr>
+        <tr>
+            <td><a asp-action="Index" asp-controller="Home" class="btn btn-warning"><i class="fa fa-angle-left"></i> Continuar comprando</a></td>
+            <td colspan="2" class="hidden-xs"></td>
+            <td class="hidden-xs text-center"><strong>Total @FormatValue((double)ViewBag.total)</strong></td>
+            <td><a asp-action="Checkout" asp-controller="Cart" class="btn btn-success btn-block">Finalizar <i class="fa fa-angle-right"></i></a></td>
+        </tr>
+    </tfoot>
+</table>
+
+@{
+    string FormatValue(double value)
+    {
+        var roundedValue = Math.Round(value, 2);
+        var str = roundedValue.ToString().Replace('.', ',');
+
+        if (roundedValue <= 0)
+            return "R$00,00";
+        else if (roundedValue > 100)
+            str = str.PadRight(6, '0');
+        else
+            str = roundedValue > 10 ? str.PadRight(5, '0') : str.PadLeft(5, '0');
+
+        return $"R${str}";
+    }
+}
